@@ -21,7 +21,7 @@ module.exports = (sequelize) => {
   });
 
   Service.hasMany(sequelize.models.Booking, {
-    foreignKey: 'service_id',
+    foreignKey: 'Service_id',
     as: 'bookings',
   });
 

@@ -19,7 +19,7 @@ app.use('/api/booking', require('./routes/bookingRoutes'));;
 app.use('/api/admin', require('./routes/adminRoutes'));
  
 
-db.sequelize.sync({ alter: true })
+db.sequelize.sync()
   .then(() => {
     console.log('Database synced!');
   })

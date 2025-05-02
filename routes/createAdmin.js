@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const { Admin } = require('../models'); // sesuaikan path kalau beda
 
 async function createAdmin() {

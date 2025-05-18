@@ -17,6 +17,10 @@ app.use('/api/services', require('./routes/serviceRoutes'));
 app.use('/api/blockedTime', require('./routes/blockedTimeRoutes'))
 app.use('/api/booking', require('./routes/bookingRoutes'));; 
 app.use('/api/admin', require('./routes/adminRoutes'));
+app.use('/api/settings', require('./routes/generalSettingsRoute'));
+app.use('/api/promo', require('./routes/promoRoutes'));
+app.use('/uploads', express.static('uploads'));
+
  
 
 db.sequelize.sync()

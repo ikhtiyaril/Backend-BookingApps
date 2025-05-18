@@ -14,7 +14,7 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Services',
+        model: 'services',
         key: 'id'
       }
     },
@@ -32,8 +32,8 @@ module.exports = (sequelize) => {
     }
   });
   Booking.belongsTo(sequelize.models.Service, {
-    foreignKey: 'Service_id',
-    as: 'Service', // Ini nama relasi yang bisa lo pakai buat akses relasi di query
+    foreignKey: 'service_id',
+    as: 'service', // Ini nama relasi yang bisa lo pakai buat akses relasi di query
   });
 
   return Booking;

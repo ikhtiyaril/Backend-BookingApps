@@ -17,11 +17,15 @@ module.exports = (sequelize) => {
     features:{
       type: DataTypes.JSON,
       allowNull:false
+    },
+    description:{
+      type: DataTypes.TEXT('long'),
+      allowNull:true
     }
   });
 
   Service.hasMany(sequelize.models.Booking, {
-    foreignKey: 'Service_id',
+    foreignKey: 'service_id',
     as: 'bookings',
   });
 

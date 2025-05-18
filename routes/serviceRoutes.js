@@ -21,11 +21,11 @@ router.post('/', async (req, res) => {
   try {
     console.log("Data received:", JSON.stringify(req.body, null, 2));
 
-    const { name, duration, price,features } = req.body;
+    const { name, duration, price,features,description } = req.body;
 
     
 
-    const newService = await Service.create({ name, duration, price,features });
+    const newService = await Service.create({ name, duration, price,features,description });
     res.status(201).json(newService);
   } catch (error) {
     console.error(error); 
@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, duration, price, features } = req.body;
+    const { name, duration, price, features,description } = req.body;
 
     
     const service = await Service.findByPk(id);
@@ -46,6 +46,7 @@ router.put('/:id', async (req, res) => {
       service.duration = duration;
       service.price = price;
       service.features = features;
+      service.description = description
       await service.save();
       res.json(service);
     } else {

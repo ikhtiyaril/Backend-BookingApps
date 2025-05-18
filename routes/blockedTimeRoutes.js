@@ -13,6 +13,23 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/dates", async (req, res) => {
+  try {
+    const {dates} = req.query;
+  
+    const blockTime = await BlockedTime.findAll({
+      where:{
+date : dates
+      }
+    });
+    console.log(blockTime)
+    res.json(blockTime);
+  } catch (e) {
+    console.error(`Gagal Mengambil data : ${e}`);
+    res.status(500).json({ error: 'Gagal mengambil data blocked time' });
+  }
+});
+
 // POST new blocked time
 router.post("/", async (req, res) => {
   try {
